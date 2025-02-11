@@ -40,7 +40,7 @@
 
     /* Kích hoạt animation sau 30s */
     animation: showBackground 0s linear forwards;
-    animation-delay: 30s;
+    animation-delay: 25s;
 }
 
 @keyframes showBackground {
@@ -52,8 +52,6 @@
         transform: translate(-50%, -50%) scale(1);
     }
 }
-
-
       .image-strip {
         position: absolute;
         top: 0;
@@ -61,7 +59,7 @@
         width: 100%;
         height: 100%;
         display: flex;
-        animation: scroll-left 30s linear infinite; /* Hiệu ứng cuộn từ phải sang trái */
+        animation: scroll-left 20s linear infinite; /* Hiệu ứng cuộn từ phải sang trái */
       }
 
       .image-strip img {
@@ -242,8 +240,8 @@
     </style>
   </head>
   <body>
-    <audio id="backgroundMusic" autoplay >
-      <source src="model.mp3" type="audio/mpeg">
+    <audio id="backgroundMusic"  autoplay>
+      <source src="keyboard.mp3" type="audio/mpeg">
       Your browser does not support the audio element.
   </audio>
   <iframe id="youtubeVideo" width="1" height="1"
@@ -287,21 +285,11 @@
 
     <!-- JavaScript -->
     <script>
-      document.addEventListener("DOMContentLoaded", () => {
-          const audio = document.getElementById("backgroundMusic");
-          audio.play().catch(() => {
-              console.log("Autoplay bị chặn. Yêu cầu người dùng tương tác.");
-          });
-      });
-
-      document.addEventListener("click", () => {
-          const audio = document.getElementById("backgroundMusic");
-          if (audio.paused) {
-              audio.play();
-          }
-      });
-
-
+       window.onload = function() {
+        setTimeout(function() {
+            document.getElementById("backgroundMusic").play();
+        }, 10000); // 10 giây
+    };
 
         const titleItem = "Happy Valentine's Day 2025";
         const text = `Em à, Đà Lạt mùa này thật đẹp
@@ -349,7 +337,7 @@
                         container.appendChild(span);
                     }
                     index++;
-                    setTimeout(addTextLetter, 30);
+                    setTimeout(addTextLetter, 50);
                 }
             }
 
